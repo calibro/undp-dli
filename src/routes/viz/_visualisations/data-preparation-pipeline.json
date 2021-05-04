@@ -7,19 +7,14 @@
         {
             "title":"Data preparation pipeline using Twitter Public API",
             "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"viz1.png"
+            "img":"pipeline1.png"
         },
         {
             "title":"Data preparation pipeline using Global Pulse",
             "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"viz2.png"
-        },
-        {
-            "title":"Hate Speech Coding Tree",
-            "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"viz3.png"
+            "img":"pipeline2.png"
         }
     ]
 
-    
+
 }

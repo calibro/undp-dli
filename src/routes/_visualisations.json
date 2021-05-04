@@ -1,5 +1,6 @@
 {
     "visualisations":[
+        {"route":"/viz/coding-tree", "title":"Hate Speech Coding Tree", "thumb":"data-preparation-pipeline.png"},
         {"route":"/viz/data-preparation-pipeline", "title":"Data preparation pipeline", "thumb":"data-preparation-pipeline.png"},
         {"route":"/viz/data-overview", "title":"Data overview", "thumb":"data-overview.png"},
         {"route":"/viz/mean-differences-on-key-dimensions", "title":"Mean differences on key dimensions", "thumb":"mean-differences-on-key-dimensions.png"},

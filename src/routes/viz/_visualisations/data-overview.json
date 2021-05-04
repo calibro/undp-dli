@@ -7,19 +7,19 @@
         {
             "title":"Tweets Analysed",
             "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"viz1.png"
+            "img":"overview-1.png"
         },
         {
             "title":"Content of Tweets",
             "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"viz2.png"
+            "img":"overview-2.png"
         },
         {
             "title":"Target of tweets by Language",
             "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"viz3.png"
+            "img":"overview-3.png"
         }
     ]
 
-    
+
 }
