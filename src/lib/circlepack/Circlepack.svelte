@@ -3,11 +3,11 @@
 	import Pack from './pack.js';
 	import Circle from '$lib/circlepack/Circle.svelte';
 	import Linechart from '$lib/Linechart.svelte';
-	import * as Hash from 'object-hash';
+	import hash from 'object-hash';
 	export let data;
 	export let width;
+	export let height;
 	export let day;
-	const height = 600;
 
 	$: circles = Pack(data, width, height);
 
@@ -23,7 +23,7 @@
 	$: scaleFactor = getScaleFactor(circles, width, height, 1);
 
 	function makeID(data) {
-		return 'c_' + Hash(data, { algorithm: 'md5' });
+		return 'c_' + hash(data, { algorithm: 'md5' });
 	}
 </script>
 

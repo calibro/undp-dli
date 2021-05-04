@@ -1,12 +1,9 @@
 {
     "visualisations":[
-        {"route":"/data-preparation-pipeline", "title":"Data preparation pipeline"},
-        {"route":"/data-overview", "title":"Data overview"},
-        {"route":"/mean-differences-on-key-dimensions", "title":"Mean differences on key dimensions"},
-        {"route": "/emotional-expressions-across-twitterspheres", "title":"Emotional expressions across Twitterspheres"},
-        {"route": "/emotions-across-timelines-and-twitterspheres", "title":"Emotions across timelines and Twitterspheres"},
-        {"route":"/word-frequencies-around-key-events","title":"Word frequencies around key events"},
-        {"route":"/network-analyses-and-descriptives", "title":"Network Analyses and descriptives"},
-        {"route":"/temporal-network-analysis", "title":"Temporal network analysis"}
+        {"route":"/viz/data-preparation-pipeline", "title":"Data preparation pipeline", "thumb":"data-preparation-pipeline.png"},
+        {"route":"/viz/data-overview", "title":"Data overview", "thumb":"data-overview.png"},
+        {"route":"/viz/mean-differences-on-key-dimensions", "title":"Mean differences on key dimensions", "thumb":"mean-differences-on-key-dimensions.png"},
+        {"route":"/viz/word-frequencies-around-key-events","title":"Word frequencies around key events", "thumb":"word-frequencies-around-key-events.png"},
+        {"route":"/viz/network-analyses-and-descriptives", "title":"Network Analyses and descriptives", "thumb":"network-analyses-and-descriptives.png"}
     ]
 }

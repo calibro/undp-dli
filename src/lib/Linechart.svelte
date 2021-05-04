@@ -1,5 +1,6 @@
 <script>
 	import { line, curveStep, scaleLinear, max, extent, format } from 'd3';
+	//import * as d3 from 'd3';
 	export let data;
 	export let day;
 	const height = 100;

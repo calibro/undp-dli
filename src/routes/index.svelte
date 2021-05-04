@@ -1,11 +1,13 @@
 <script context="module">
+	const images = import.meta.globEager('./_images/*.png');
+
 	export async function load({ fetch }) {
 		const getData = (resourceName) => fetch(resourceName).then((res) => res.json());
 		const data = await getData(`/visualisations.json`);
-		//console.log(data.visualisations);
 		return {
 			props: {
-				visualisations: data.visualisations
+				visualisations: data.visualisations,
+				images
 			}
 		};
 	}
@@ -13,15 +15,16 @@
 
 <script>
 	import VizCard from '$lib/VizCard.svelte';
+	import dli_home from '$lib/assets/dli_home.png';
 	export let visualisations;
-
-	$: console.log(visualisations);
+	export let images;
 </script>
 
 <div class="bg-dark">
 	<div class="container text-white">
 		<div class="row">
-			<div class="col-12 text-center">
+			<div class="col-12 text-center py-5">
+				<img src={dli_home} class="mb-3" alt="dli_logo" width="175" height="auto" />
 				<h1>Digital Lighthouse Initiative</h1>
 				<p>Monitoring Hate Speech Using Big Data and Machine Learning</p>
 			</div>
@@ -30,7 +33,7 @@
 </div>
 
 <div class="container">
-	<div class="row">
+	<div class="row py-4 mb-3 border-bottom border-light">
 		<div class="col-3">
 			<h6 class="text-info">Introduction</h6>
 		</div>
@@ -50,14 +53,20 @@
 			</p>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row my-2">
+		<div class="col-3">
+			<h6 class="text-info">Visualisations</h6>
+		</div>
+	</div>
+	<div class="row mb-4">
 		{#each visualisations as visualisation, i}
 			<div class="col-3">
-				<VizCard title={visualisation.title} number={i} route={visualisation.route} />
+				<VizCard
+					{...visualisation}
+					thumb_path={images[`./_images/${visualisation.thumb}`].default}
+					number={i}
+				/>
 			</div>
 		{/each}
 	</div>
 </div>
-
-<style lang="scss">
-</style>
