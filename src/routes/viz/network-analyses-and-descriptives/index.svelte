@@ -1,8 +1,13 @@
 <script context="module">
-	export const ssr = false;
+	import { base } from '$app/paths';
+    import { dev } from '$app/env';
+	//export const ssr = false;
 	export async function load({ page, fetch }) {
-		const res = await fetch(`${page.path}/data.json`);
-		const res2 = await fetch(`${page.path}.json`);
+
+		const baseUrl = dev?page.path:base+page.path
+
+		const res = await fetch(`${baseUrl}/data.json`);
+		const res2 = await fetch(`${baseUrl}.json`);
 		const info = await res2.json();
 		const dataTable = await res.json();
 		return {

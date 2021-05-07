@@ -1,9 +1,12 @@
 <script context="module">
+    import { base } from '$app/paths';
+    import { dev } from '$app/env';
 	const images = import.meta.globEager('./_images/*.png');
 
-	export async function load({ fetch }) {
+	export async function load({ fetch, page }) {
+        const baseUrl = dev?page.path:base+page.path
 		const getData = (resourceName) => fetch(resourceName).then((res) => res.json());
-		const data = await getData(`/visualisations.json`);
+		const data = await getData(`${baseUrl}visualisations.json`);
 		return {
 			props: {
 				visualisations: data.visualisations,

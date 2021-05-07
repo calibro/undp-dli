@@ -1,7 +1,12 @@
 <script context="module">
+	import { base } from '$app/paths';
+    import { dev } from '$app/env';
+	
 	const images = import.meta.globEager('./_images/*.png');
 	export async function load({ fetch, page }) {
-		const res = await fetch(`/viz/${page.params.title}.json`);
+
+		const baseUrl = dev?page.path:base+page.path
+		const res = await fetch(`${baseUrl}.json`);
 		const json = await res.json();
 
 		json.data.sections = json.data.sections.map((d) => {

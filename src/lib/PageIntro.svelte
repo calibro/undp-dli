@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import { Icon } from 'sveltestrap';
 	export let title = 'My mock title super good';
 	export let description =
@@ -7,7 +8,9 @@
 
 <div class="row my-3">
 	<div class="col-12">
-		<a sveltekit:prefetch href="/"><Icon name="arrow-bar-left" /><span class="ms-1">Home</span></a>
+		<a sveltekit:prefetch href={base + '/'}
+			><Icon name="arrow-bar-left" /><span class="ms-1">Home</span></a
+		>
 	</div>
 </div>
 <div class="row pb-3 border-bottom border-light">

@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	export let title;
 	export let route;
 	export let thumb_path;
@@ -19,7 +20,7 @@
 		<h4>{title}</h4>
 	</div>
 	<div class="align-self-end">
-		<a sveltekit:prefetch href={route} class="btn btn-primary" role="button">Discover</a>
+		<a sveltekit:prefetch href={base + route} class="btn btn-primary" role="button">Discover</a>
 	</div>
 </div>
 
