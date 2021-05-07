@@ -5,6 +5,7 @@
         {"route":"/viz/data-overview", "title":"Data overview", "thumb":"data-overview.png"},
         {"route":"/viz/mean-differences-on-key-dimensions", "title":"Mean differences on key dimensions", "thumb":"mean-differences-on-key-dimensions.png"},
         {"route":"/viz/word-frequencies-around-key-events","title":"Word frequencies around key events", "thumb":"word-frequencies-around-key-events.png"},
-        {"route":"/viz/network-analyses-and-descriptives", "title":"Network Analyses and descriptives", "thumb":"network-analyses-and-descriptives.png"}
+        {"route":"/viz/network-analyses-and-descriptives", "title":"Network Analyses and descriptives", "thumb":"network-analyses-and-descriptives.png"},
+        {"route":"/viz/temporal-network", "title":"Temporal network analysis", "thumb":"temporal-network-analysis.png"}
     ]
 }
