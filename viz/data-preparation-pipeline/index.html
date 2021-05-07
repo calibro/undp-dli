@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- <link rel="icon" href="/favicon.ico" /> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+
+		
+
+		<link rel="modulepreload" href="/undp-dli/_app/start-839ae651.js">
+		<link rel="modulepreload" href="/undp-dli/_app/chunks/vendor-e6d56a9d.js">
+		<link rel="modulepreload" href="/undp-dli/_app/chunks/paths-45dac81d.js">
+		<link rel="modulepreload" href="/undp-dli/_app/pages/$layout.svelte-cd75230e.js">
+		<link rel="modulepreload" href="/undp-dli/_app/pages/viz/[title].svelte-65bb291e.js">
+		<link rel="modulepreload" href="/undp-dli/_app/chunks/PageIntro-e009117e.js">
+		<link rel="stylesheet" href="/undp-dli/_app/assets/start-a8cd1609.css">
+		<link rel="stylesheet" href="/undp-dli/_app/assets/vendor-28c0263c.css">
+		<link rel="stylesheet" href="/undp-dli/_app/assets/pages/$layout.svelte-abcbc3c1.css">
+
+		<script type="module">
+			import { start } from "/undp-dli/_app/start-839ae651.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"/undp-dli","assets":"/undp-dli"},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/undp-dli/_app/pages/$layout.svelte-cd75230e.js"),
+						import("/undp-dli/_app/pages/viz/[title].svelte-65bb291e.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/viz/data-preparation-pipeline",
+						query: new URLSearchParams(""),
+						params: {"title":"data-preparation-pipeline"}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<nav class="navbar navbar-expand-md sticky-top navbar-light bg-white shadow-sm"><div class="container-fluid"><a class="navbar-brand" sveltekit:prefetch href="/undp-dli/"><img src="/undp-dli/_app/assets/undp_logo.e5e9bfb0.png" class="me-3" alt="UNDP logo" width="auto" height="50">
+	<img src="/undp-dli/_app/assets/dli_logo.5d5512bf.png" alt="DLI logo" width="auto" height="38"></a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center"><li class="nav-item"><a sveltekit:prefetch href="/undp-dli/about" class="nav-link">About the project</a></li>
+		<li class="nav-item"><a href="/undp-dli/about" download class="btn btn-sm btn-outline-primary" role="button">Download the report</a></li></ul></div></div></nav>
+<div class="container"><div class="row my-3"><div class="col-12"><a sveltekit:prefetch href="/undp-dli/"><i class="bi-arrow-bar-left"></i><span class="ms-1">Home</span></a></div></div>
+<div class="row pb-3 border-bottom border-light"><div class="col-md-5"><h1>Data preparation pipeline</h1></div>
+	<div class="col-md-7"><p>Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui.</p></div></div>
+	<div class="row my-3 border-bottom border-light"><div class="col-4"><h4>Data preparation pipeline using Twitter Public API</h4>
+	<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis</p></div>
+<div class="col-8"><div class="d-flex justify-content-center"><img class="img-fluid" src="/undp-dli/_app/assets/pipeline1.783bf74e.png" alt="Data preparation pipeline using Twitter Public API">
+	</div></div>
+	</div><div class="row my-3 border-bottom border-light"><div class="col-4"><h4>Data preparation pipeline using Global Pulse</h4>
+	<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis</p></div>
+<div class="col-8"><div class="d-flex justify-content-center"><img class="img-fluid" src="/undp-dli/_app/assets/pipeline2.641912b2.png" alt="Data preparation pipeline using Global Pulse">
+	</div></div>
+	</div></div>
+
+
+
+	<script type="svelte-data" url="/viz/data-preparation-pipeline.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"data\":{\"title\":\"Data preparation pipeline\",\"desc\":\"Lorem ipsum\",\"thumb\":\"data-preparation-pipeline.png\",\"type\":\"static\",\"sections\":[{\"title\":\"Data preparation pipeline using Twitter Public API\",\"description\":\"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis\",\"img\":\"pipeline1.png\"},{\"title\":\"Data preparation pipeline using Global Pulse\",\"description\":\"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis\",\"img\":\"pipeline2.png\"}]}}"}</script>
+</div>
+	</body>
+</html>
