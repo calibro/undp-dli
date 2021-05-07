@@ -1,25 +1,22 @@
 {
-    "title":"Data overview",
+    "title":"Temporal network analysis",
     "desc":"Lorem ipsum",
-    "thumb":"data-overview.png",
-    "type":"static",
+    "thumb":"mean-differences-on-key-dimensions.png",
     "sections":[
         {
-            "title":"Tweets Analysed",
+            "title":"Number of users engaged",
             "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"overview-1.png"
+            "img":"temporalnetwork-1.png"
         },
         {
-            "title":"Content of Tweets",
+            "title":"Global clustering",
             "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"overview-2.png"
+            "img":"temporalnetwork-2.png"
         },
         {
-            "title":"Target of tweets by Language",
+            "title":"Local clustering",
             "description":"Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis",
-            "img":"overview-3.png"
+            "img":"temporalnetwork-3.png"
         }
     ]
-
-
 }
