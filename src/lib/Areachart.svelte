@@ -36,8 +36,6 @@
 
 	const hovered = getContext('hovered');
 
-	$: console.log(xScale.bandwidth())
-
 	function formatHoveredValue(data, id){
 		if(id){
 			const elm = data.filter(d=>d.x===id)

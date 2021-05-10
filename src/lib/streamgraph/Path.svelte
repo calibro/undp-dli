@@ -21,7 +21,7 @@
 	});
 
 	afterUpdate(() => {
-		console.log(data);
+		//console.log(data);
 		d3.select(el).transition().attr('d', area(data));
 	});
 

@@ -20,7 +20,7 @@
 </script>
 
 <script>
-	import { getContext, setContext } from 'svelte';
+	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { descending } from 'd3';
 	import NetworkCytoScape from '$lib/NetworkCytoScape.svelte';
