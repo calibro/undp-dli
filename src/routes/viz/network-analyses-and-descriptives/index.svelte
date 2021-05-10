@@ -9,10 +9,10 @@
 		const res = await fetch(`${baseUrl}/data.json`);
 		const res2 = await fetch(`${baseUrl}.json`);
 		const info = await res2.json();
-		const dataTable = await res.json();
+		const data = await res.json();
 		return {
 			props: {
-				network: dataTable.network,
+				networks: data.networks,
 				info: info.data
 			}
 		};
@@ -26,9 +26,12 @@
 	import NetworkCytoScape from '$lib/NetworkCytoScape.svelte';
 	import PageIntro from '$lib/PageIntro.svelte';
 	import Areachart from '$lib/Areachart.svelte';
-	export let network;
+	export let networks;
 	export let info;
 	let w;
+	let languages = Array.from(Object.keys(networks))
+	let selectedLanguage = languages[0];
+
 
 	let hoveredStore = writable(null);
 	setContext('hovered', hoveredStore);
@@ -54,21 +57,40 @@
 <div class="bg-light w-100 containerViz">
 	<div class="container h-100 d-flex flex-column">
 		<div class="row flex-grow-1 overflow-hidden">
-			<div bind:clientWidth={w} class="col-3 overflow-scroll h-100 border-end">
-				{#each distributionCharts as chart}
-					<div>
+			<div class="col-3 overflow-scroll h-100 border-end">
+				<div class="my-4">
+					<label for="language" class="form-label">Language</label>
+					<select
+						bind:value={selectedLanguage}
+						class="form-select"
+						id="language"
+						aria-label="Language"
+					>
+						{#each languages as language}
+							<option value={language}>
+								{language}
+							</option>
+						{/each}
+					</select>
+				</div>
+				<div bind:clientWidth={w} class="w-100">
+					{#each distributionCharts as chart}
+					<div class="mb-4">
 						<h5>
 							{chart.title}
 						</h5>
-						<p>{chart.desc}</p>
+						<p class="mb-2">{chart.desc}</p>
+					
+					<div class="bg-white border rounded">
+						<Areachart width={w} height={110} data={makeData(networks[selectedLanguage].nodes, chart.key)} />
 					</div>
-					<Areachart width={w} height={110} data={makeData(network.nodes, chart.key)} />
+				</div>
 				{/each}
+				</div>
 			</div>
 			<div class="col-9">
 				<div class="w-100 h-100">
-					<!-- <Network data={network} /> -->
-					<NetworkCytoScape data={network} />
+					<NetworkCytoScape data={networks[selectedLanguage]} />
 				</div>
 			</div>
 		</div>

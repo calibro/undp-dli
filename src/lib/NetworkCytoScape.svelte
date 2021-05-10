@@ -1,17 +1,20 @@
 <script>
 	import cytoscape from 'cytoscape';
 	import { getContext } from 'svelte';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate, onDestroy } from 'svelte';
+	import{scaleLinear, extent} from "d3";
 
 	export let data;
 	let container;
+	let cy;
 
 	const hovered = getContext('hovered');
+	$: cyElements = makeNetwork(data);
 
-	const cyElements = [];
 
-	data.nodes.forEach((d) => {
-		const elm = {
+	function makeNetwork(data){
+		const nodes = data.nodes.map(d=>{
+			return {
 			group: 'nodes',
 			data: d,
 			position: { x: d.x, y: d.y },
@@ -20,30 +23,25 @@
 			selectable: false,
 			pannable: true
 		};
+		})
 
-		cyElements.push(elm);
-	});
-
-	data.edges.forEach((d) => {
-		const elm = {
+		const edgesScale = scaleLinear().domain(extent(data.edges,d=>d.size)).range([1,10])
+		const edges = data.edges.map(d=>{
+			return {
 			group: 'edges',
-			data: d,
+			data: {...d, size:edgesScale(d.size)},
 			locked: true,
 			grabbable: false,
 			selectable: false
 		};
+		})
 
-		cyElements.push(elm);
-	});
+		return [...nodes, ...edges]
+
+	}
 
 	onMount(async () => {
-		// const module = await import('sigma');
-		// Sigma = module.default;
-		// const renderer = new Sigma.Sigma(graph, container, settings);
-		// renderer.on('clickNode', ({ node, captor, event }) => {
-		// 	console.log('Clicking:', node);
-		// });
-		const cy = cytoscape({
+		cy = cytoscape({
 			container: container, // container to render in
 			elements: cyElements,
 			layout: {
@@ -63,14 +61,16 @@
 						width: 'data(size)',
 						height: 'data(size)',
 						'border-width': 1,
-						'border-color': '#fff'
+						'border-color': '#fff',
 						//'overlay-color': '#fff'
+						'text-outline-color': '#fff',
+						'text-outline-width': 1
 					}
 				},
 				{
 					selector: 'node.highlight',
 					style: {
-						'background-color': '#0d6efd'
+						'background-color': '#0dcaf0'
 					}
 				},
 				{
@@ -90,13 +90,6 @@
 					style: { opacity: 0.2 }
 				},
 				{
-					selector: 'label',
-					style: {
-						'text-outline-color': '#fff',
-						'text-outline-width': 1
-					}
-				},
-				{
 					selector: 'core',
 					style: {
 						'active-bg-size': 0
@@ -105,32 +98,37 @@
 			]
 		});
 		cy.on('tap', 'node', function (evt) {
-			var node = evt.target;
-			const id = node.id();
-			hovered.set(id);
-			console.log('tapped ' + node.id());
+
 		});
 		cy.on('mouseover', 'node', function (e) {
-			var sel = e.target;
+			const node = e.target;
+			const id = node.id();
+			hovered.set(id);
 			// cy.elements()
 			// 	.difference(sel.outgoers().union(sel.incomers()))
 			// 	.not(sel)
 			// 	.addClass('semitransp');
-			sel.addClass('highlight'); //.outgoers().union(sel.incomers()).addClass('highlight');
+			node.addClass('highlight'); //.outgoers().union(sel.incomers()).addClass('highlight');
 		});
 		cy.on('mouseout', 'node', function (e) {
-			var sel = e.target;
+			var node = e.target;
+			hovered.set(null);
 			//cy.elements().removeClass('semitransp');
-			sel.removeClass('highlight'); //.outgoers().union(sel.incomers()).removeClass('highlight');
+			node.removeClass('highlight'); //.outgoers().union(sel.incomers()).removeClass('highlight');
 		});
+
 	});
+
+	afterUpdate(() => {
+		cy.elements().remove()
+		cy.json({elements:cyElements})
+		cy.fit()
+	});
+
+	onDestroy(() => {
+		cy.destroy()
+	});
+
 </script>
 
 <div class="w-100 h-100" bind:this={container} />
-
-<style>
-	#network {
-		width: 700px;
-		height: 700px;
-	}
-</style>
