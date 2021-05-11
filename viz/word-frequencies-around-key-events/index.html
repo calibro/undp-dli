@@ -8,19 +8,19 @@
 
 		
 
-		<link rel="modulepreload" href="/undp-dli/_app/start-1e02762f.js">
-		<link rel="modulepreload" href="/undp-dli/_app/chunks/vendor-d868d53a.js">
+		<link rel="modulepreload" href="/undp-dli/_app/start-abe4701f.js">
+		<link rel="modulepreload" href="/undp-dli/_app/chunks/vendor-0947c94a.js">
 		<link rel="modulepreload" href="/undp-dli/_app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/undp-dli/_app/pages/$layout.svelte-615a9f55.js">
-		<link rel="modulepreload" href="/undp-dli/_app/pages/viz/word-frequencies-around-key-events/index.svelte-c6c26c91.js">
-		<link rel="modulepreload" href="/undp-dli/_app/chunks/PageIntro-27a8d3de.js">
+		<link rel="modulepreload" href="/undp-dli/_app/pages/$layout.svelte-722164b3.js">
+		<link rel="modulepreload" href="/undp-dli/_app/pages/viz/word-frequencies-around-key-events/index.svelte-71d79b01.js">
+		<link rel="modulepreload" href="/undp-dli/_app/chunks/PageIntro-ae360e7e.js">
 		<link rel="stylesheet" href="/undp-dli/_app/assets/start-a8cd1609.css">
 		<link rel="stylesheet" href="/undp-dli/_app/assets/vendor-28c0263c.css">
 		<link rel="stylesheet" href="/undp-dli/_app/assets/pages/$layout.svelte-abcbc3c1.css">
 		<link rel="stylesheet" href="/undp-dli/_app/assets/pages/viz/word-frequencies-around-key-events/index.svelte-c6bf3b2d.css">
 
 		<script type="module">
-			import { start } from "/undp-dli/_app/start-1e02762f.js";
+			import { start } from "/undp-dli/_app/start-abe4701f.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/undp-dli","assets":"/undp-dli"},
@@ -32,8 +32,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/undp-dli/_app/pages/$layout.svelte-615a9f55.js"),
-						import("/undp-dli/_app/pages/viz/word-frequencies-around-key-events/index.svelte-c6c26c91.js")
+						import("/undp-dli/_app/pages/$layout.svelte-722164b3.js"),
+						import("/undp-dli/_app/pages/viz/word-frequencies-around-key-events/index.svelte-71d79b01.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -62,31 +62,46 @@
 					</option><option value="ar">ar
 					</option></select></div></div>
 	<div class="col-md-4"><div class="mb-3"><label for="event" class="form-label">Event</label>
-			<select class="form-select" id="event" aria-label="Event" value="2020-08-04"><option value="2020-08-04">2020-08-04
-					</option><option value="2019-07-04">2019-07-04
-					</option><option value="2019-06-22">2019-06-22
+			<select class="form-select" id="event" aria-label="Event" value="2020-08-04"><option value="2020-08-04">Beirut explosion (2020-08-04)
+					</option><option value="2019-07-04">African cup match (2019-07-04)
+					</option><option value="2019-06-22">Tunis bombings (2019-06-22)
 					</option></select></div></div>
 	<div class="col-md-2 offset-md-3"><div class="mb-0"><label for="rangeWords" class="form-label">Threshold</label>
 			<input type="range" class="form-range" min="0" max="1" step="0.5" id="rangeWords" value="0.5">
 			<div class="d-flex justify-content-between w-100"><div class="col-3">top 10</div>
 				<div class="col-3 text-center">top 50</div>
 				<div class="col-3 text-end">All</div></div></div></div></div>
-<div class="row flex-grow-1"><div class="col-12"><div class="w-100 h-100"></div></div></div>
-<div class="row py-2"><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">−7</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">−6</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">−5</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">−4</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">−3</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">−2</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">−1</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-secondary svelte-11zrb3w">0</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">+1</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">+2</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">+3</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">+4</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">+5</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">+6</button>
-		</div><div class="col"><button type="button" class="btn w-100 btn-outline-secondary svelte-11zrb3w">+7</button>
+<div class="row flex-grow-1 flex-shrink-1 overflow-hidden"><div class="col-12"><div class="w-100 h-100"></div></div></div>
+<div class="row py-2 gx-0"><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">−7
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">−6
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">−5
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">−4
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">−3
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">−2
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">−1
+				day</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-secondary svelte-11zrb3w">0
+				day</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">+1
+				day</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">+2
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">+3
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">+4
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">+5
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">+6
+				days</button>
+		</div><div class="col"><button type="button" class="btn btn-sm rounded-0 w-100 btn-outline-secondary svelte-11zrb3w">+7
+				days</button>
 		</div></div></div>
 </div>
 

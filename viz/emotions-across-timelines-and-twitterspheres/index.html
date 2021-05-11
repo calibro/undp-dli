@@ -8,19 +8,19 @@
 
 		
 
-		<link rel="modulepreload" href="/undp-dli/_app/start-1e02762f.js">
-		<link rel="modulepreload" href="/undp-dli/_app/chunks/vendor-d868d53a.js">
+		<link rel="modulepreload" href="/undp-dli/_app/start-abe4701f.js">
+		<link rel="modulepreload" href="/undp-dli/_app/chunks/vendor-0947c94a.js">
 		<link rel="modulepreload" href="/undp-dli/_app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/undp-dli/_app/pages/$layout.svelte-615a9f55.js">
-		<link rel="modulepreload" href="/undp-dli/_app/pages/viz/emotions-across-timelines-and-twitterspheres/index.svelte-0edad297.js">
-		<link rel="modulepreload" href="/undp-dli/_app/chunks/PageIntro-27a8d3de.js">
+		<link rel="modulepreload" href="/undp-dli/_app/pages/$layout.svelte-722164b3.js">
+		<link rel="modulepreload" href="/undp-dli/_app/pages/viz/emotions-across-timelines-and-twitterspheres/index.svelte-2bbad649.js">
+		<link rel="modulepreload" href="/undp-dli/_app/chunks/PageIntro-ae360e7e.js">
 		<link rel="stylesheet" href="/undp-dli/_app/assets/start-a8cd1609.css">
 		<link rel="stylesheet" href="/undp-dli/_app/assets/vendor-28c0263c.css">
 		<link rel="stylesheet" href="/undp-dli/_app/assets/pages/$layout.svelte-abcbc3c1.css">
-		<link rel="stylesheet" href="/undp-dli/_app/assets/pages/viz/emotions-across-timelines-and-twitterspheres/index.svelte-b7b5454d.css">
+		<link rel="stylesheet" href="/undp-dli/_app/assets/pages/viz/emotions-across-timelines-and-twitterspheres/index.svelte-250f77c0.css">
 
 		<script type="module">
-			import { start } from "/undp-dli/_app/start-1e02762f.js";
+			import { start } from "/undp-dli/_app/start-abe4701f.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/undp-dli","assets":"/undp-dli"},
@@ -32,8 +32,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/undp-dli/_app/pages/$layout.svelte-615a9f55.js"),
-						import("/undp-dli/_app/pages/viz/emotions-across-timelines-and-twitterspheres/index.svelte-0edad297.js")
+						import("/undp-dli/_app/pages/$layout.svelte-722164b3.js"),
+						import("/undp-dli/_app/pages/viz/emotions-across-timelines-and-twitterspheres/index.svelte-2bbad649.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -69,10 +69,15 @@
 					</option><option value="Target Group">Target Group
 					</option><option value="Dehumanization">Dehumanization
 					</option><option value="Emotions">Emotions
-					</option></select></div></div></div>
-<div class="row flex-grow-1"><div class="col-12"><div class="w-100 h-100"><svg></svg></div></div></div>
+					</option></select></div></div>
+	<div class="col-md-auto ms-auto"><label for="options" class="form-label w-100">View</label>
+		<div class="btn-group" role="group"><input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" value="stackOffsetNone">
+			<label class="btn btn-secondary" for="option1">Stack</label>
+			<input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" value="stackOffsetSplit">
+			<label class="btn btn-secondary" for="option2">Split</label></div></div></div>
+<div class="row flex-grow-1 flex-shrink-1 overflow-hidden"><div class="col-12"><div class="w-100 h-100"><svg></svg></div></div></div>
 <div class="row py-2 border-top"><div class="col-12"><p class="text-muted mb-0"><small>Valid tweets</small></p>
-                <svg width="0" height="100"></svg></div></div></div>
+		<svg width="0" height="100"></svg></div></div></div>
 </div>
 
 
