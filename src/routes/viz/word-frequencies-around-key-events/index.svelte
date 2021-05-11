@@ -1,10 +1,4 @@
 <script context="module">
-	//import { group, tsvParse, autoType } from 'd3';
-	//export const ssr = false;
-	//export const hydrate = false;
-
-	//export const prerender = false;
-
 	import { base } from '$app/paths';
 	import { dev } from '$app/env';
 
@@ -12,7 +6,6 @@
 		const baseUrl = dev ? page.path : base + page.path;
 		const res = await fetch(`${baseUrl}/data.json`);
 		const res2 = await fetch(`${baseUrl}.json`);
-		//const res = await fetch(`/circlepack.tsv`);
 		const info = await res2.json();
 		const dataTable = await res.json();
 		return {
@@ -26,15 +19,17 @@
 
 <script>
 	import { descending, scaleOrdinal, range, format, group } from 'd3';
-	// import * as d3 from 'd3';
 	import Circlepack from '$lib/circlepack/Circlepack.svelte';
 	import PageIntro from '$lib/PageIntro.svelte';
 	export let dataTable;
 	export let info;
-	//console.log(dataTable);
-	//const test = d3.tsvParse(dataTable, d3.autoType);
-	//console.log(test);
-	//const dataTable = await res.json();
+
+	const eventsLabelDict = {
+		'2020-08-04': 'Beirut explosion (2020-08-04)',
+		'2019-07-04': 'African cup match (2019-07-04)',
+		'2019-06-22': 'Tunis bombings (2019-06-22)'
+	};
+
 	const dataMap = group(
 		dataTable,
 		(d) => d.lang,
@@ -123,7 +118,7 @@
 					<select bind:value={selectedEvent} class="form-select" id="event" aria-label="Event">
 						{#each events as event}
 							<option value={event}>
-								{event}
+								{eventsLabelDict[event]}
 							</option>
 						{/each}
 					</select>
