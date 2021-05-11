@@ -66,7 +66,6 @@ function brushended(event) {
 	const [x0, x1] = selection.map(d => interval.round(xScale.invert(d)));
     select(this).call(brush.move, x1 > x0 ? [x0, x1].map(xScale) : null);
 	brushExtent.set([x0, x1])
-	
 
   }
 

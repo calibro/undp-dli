@@ -1,9 +1,9 @@
 <script context="module">
 	import { base } from '$app/paths';
-    import { dev } from '$app/env';
+	import { dev } from '$app/env';
 
 	export async function load({ page, fetch }) {
-		const baseUrl = dev?page.path:base+page.path
+		const baseUrl = dev ? page.path : base + page.path;
 		const res = await fetch(`${baseUrl}/data.json`);
 		const res2 = await fetch(`${baseUrl}.json`);
 		//const res = await fetch(`/circlepack.tsv`);
@@ -20,37 +20,46 @@
 
 <script>
 	import { extent } from 'd3';
-    import Streamgraph from '$lib/streamgraph/Streamgraph.svelte';
-    import LinechartStream from '$lib/LinechartStream.svelte';
+	import Streamgraph from '$lib/streamgraph/Streamgraph.svelte';
+	import LinechartStream from '$lib/LinechartStream.svelte';
 	import PageIntro from '$lib/PageIntro.svelte';
-    import { setContext } from 'svelte';
-    import { writable } from 'svelte/store';
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
 	export let emotions;
 	export let info;
 	let w;
 	let h;
-    let languages = Object.keys(emotions)
+	let languages = Object.keys(emotions);
 	let selectedLanguage = languages[0];
-	
-    let macroCategories = ['all',...new Set(emotions[selectedLanguage].evolution.map(d=>d.Macrocategory))];
-    let selectedMacroCategory = macroCategories[0]
+
+	let macroCategories = [
+		'all',
+		...new Set(emotions[selectedLanguage].evolution.map((d) => d.Macrocategory))
+	];
+	let selectedMacroCategory = macroCategories[0];
+	let categories = [...new Set(emotions[selectedLanguage].evolution.map((d) => d.Category))];
 
 	$: data = emotions[selectedLanguage].evolution
 		.map((d) => {
-            return {...d, date:new Date(d.date)}
+			return { ...d, date: new Date(d.date) };
 		})
-		.filter((d) => selectedMacroCategory !== 'all'?selectedMacroCategory === d.Macrocategory:true);
-    
-    $: dataLinechart = emotions[selectedLanguage].valid
-		.map((d) => {
-            return {y: d.value, x:new Date(d.Date)}
-		})
-    
-    $: setContext('brushExtentDefault', extent(dataLinechart, d=>d.x));
+		.filter((d) =>
+			selectedMacroCategory !== 'all' ? selectedMacroCategory === d.Macrocategory : true
+		);
 
-    $: brushExtentStore = writable(extent(dataLinechart, d=>d.x));
+	$: dataLinechart = emotions[selectedLanguage].valid.map((d) => {
+		return { y: d.value, x: new Date(d.Date) };
+	});
+
+	$: setContext(
+		'brushExtentDefault',
+		extent(dataLinechart, (d) => d.x)
+	);
+
+	$: brushExtentStore = writable(extent(dataLinechart, (d) => d.x));
 	$: setContext('brushExtent', brushExtentStore);
 
+	let view = 'stackOffsetNone';
 </script>
 
 <div class="container">
@@ -79,7 +88,12 @@
 			<div class="col-md-4">
 				<div class="mb-3">
 					<label for="macroCategory" class="form-label">Macro category</label>
-					<select bind:value={selectedMacroCategory} class="form-select" id="macroCategory" aria-label="macroCategory">
+					<select
+						bind:value={selectedMacroCategory}
+						class="form-select"
+						id="macroCategory"
+						aria-label="macroCategory"
+					>
 						{#each macroCategories as macroCategory}
 							<option value={macroCategory}>
 								{macroCategory}
@@ -88,19 +102,44 @@
 					</select>
 				</div>
 			</div>
+			<div class="col-md-auto ms-auto">
+				<label for="options" class="form-label w-100">View</label>
+				<div class="btn-group" role="group">
+					<input
+						type="radio"
+						bind:group={view}
+						class="btn-check"
+						name="options"
+						id="option1"
+						autocomplete="off"
+						value={'stackOffsetNone'}
+					/>
+					<label class="btn btn-secondary" for="option1">Stack</label>
+					<input
+						type="radio"
+						bind:group={view}
+						class="btn-check"
+						name="options"
+						id="option2"
+						autocomplete="off"
+						value={'stackOffsetSplit'}
+					/>
+					<label class="btn btn-secondary" for="option2">Split</label>
+				</div>
+			</div>
 		</div>
 		<div class="row flex-grow-1">
 			<div class="col-12">
 				<div bind:clientWidth={w} bind:clientHeight={h} class="w-100 h-100">
-					<Streamgraph width={w} height={h} {data} />
+					<Streamgraph width={w} height={h} {data} {categories} {view} />
 				</div>
 			</div>
 		</div>
 		<div class="row py-2 border-top">
-            <div class="col-12">
-                <p class="text-muted mb-0"><small>Valid tweets</small></p>
-                <LinechartStream width={w} data={dataLinechart}></LinechartStream>
-            </div>
+			<div class="col-12">
+				<p class="text-muted mb-0"><small>Valid tweets</small></p>
+				<LinechartStream width={w} data={dataLinechart} />
+			</div>
 		</div>
 	</div>
 </div>

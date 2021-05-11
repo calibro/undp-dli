@@ -126,7 +126,9 @@
 	});
 
 	onDestroy(() => {
-		cy.destroy()
+		if(cy){
+			cy.destroy()
+		}
 	});
 
 </script>
