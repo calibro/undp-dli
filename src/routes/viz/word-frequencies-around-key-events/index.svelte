@@ -153,7 +153,7 @@
 		</div>
 		<div class="row py-2 gx-0">
 			{#each days as day}
-				<div class="col">
+				<div class="col-auto col-md">
 					<button
 						on:click={() => handleDays(day)}
 						type="button"
@@ -162,7 +162,7 @@
 						}`}
 					>
 						{day ? format('+')(day) : day}
-						{`day${Math.abs(day) > 1 ? 's' : ''}`}
+						<span class="d-none d-md-inline">{`day${Math.abs(day) > 1 ? 's' : ''}`}</span>
 					</button>
 				</div>
 			{/each}

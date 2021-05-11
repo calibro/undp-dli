@@ -18,7 +18,7 @@
 		<h1>{title}</h1>
 	</div>
 	<div class="col-md-7">
-		<p>
+		<p class="lead">
 			{description}
 		</p>
 	</div>

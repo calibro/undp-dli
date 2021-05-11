@@ -1,23 +1,21 @@
-// (Required) Import Bootstrap
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
+@import '../node_modules/@ibm/plex/css/ibm-plex.min.css';
 
-// Create your own map
-// $custom-colors: (
-//   "primary": rgb(84, 22, 22)
-// );
+$font-family-base: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+	Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+	'Noto Color Emoji' !default;
 
-// Merge the maps
-//$theme-colors: map-merge($theme-colors, $custom-colors);
+$headings-main-font-family: 'IBM Plex Serif', system-ui, -apple-system, 'Segoe UI', Roboto,
+	'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+	'Segoe UI Symbol', 'Noto Color Emoji' !default;
 
-// $font-family-sans-serif: monospace, system-ui, -apple-system, 'Segoe UI', Roboto,
-//   'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-//   'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+h1,
+h4 {
+	font-family: $headings-main-font-family;
+}
 
-// $primary: #33e406;
+h3 {
+	font-weight: 400 !important;
+}
 
-
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
-
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';

@@ -20,7 +20,9 @@
 		<h4>{title}</h4>
 	</div>
 	<div class="align-self-end">
-		<a sveltekit:prefetch href={base + route} class="btn btn-primary" role="button">Discover</a>
+		<a sveltekit:prefetch href={base + route} class="btn btn-primary rounded-pill" role="button"
+			>Discover</a
+		>
 	</div>
 </div>
 
