@@ -19,7 +19,7 @@
 </script>
 
 <script>
-	import { extent } from 'd3';
+	import { extent, groups, schemeTableau10, color } from 'd3';
 	import Streamgraph from '$lib/streamgraph/Streamgraph.svelte';
 	import LinechartStream from '$lib/LinechartStream.svelte';
 	import PageIntro from '$lib/PageIntro.svelte';
@@ -38,6 +38,23 @@
 	];
 	let selectedMacroCategory = macroCategories[0];
 	let categories = [...new Set(emotions[selectedLanguage].evolution.map((d) => d.Category))];
+
+	const emotionsGroup = groups(
+		[...emotions['ar'].evolution, ...emotions['fr'].evolution],
+		(d) => d.Macrocategory,
+		(d) => d.Category
+	);
+
+	const groupColors = emotionsGroup
+		.map((d, i) => {
+			const mainColor = schemeTableau10[i];
+			const step = 1 / d[1].length;
+			const categories = d[1].map((c, l) => {
+				return { category: c[0], color: color(mainColor).brighter(l * step) };
+			});
+			return categories;
+		})
+		.flat();
 
 	$: data = emotions[selectedLanguage].evolution
 		.map((d) => {
@@ -131,7 +148,7 @@
 		<div class="row flex-grow-1 flex-shrink-1 overflow-hidden" bind:clientHeight={h}>
 			<div class="col-12">
 				<div bind:clientWidth={w} class="w-100 h-100">
-					<Streamgraph width={w} height={h} {data} {categories} {view} />
+					<Streamgraph width={w} height={h} {data} {groupColors} {view} />
 				</div>
 			</div>
 		</div>

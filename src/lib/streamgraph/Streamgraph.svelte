@@ -18,7 +18,7 @@
 	export let data = [];
 	export let width;
 	export let height;
-	export let categories;
+	export let groupColors;
 	export let view = 'stackOffsetNone';
 
 	const offset = {
@@ -57,7 +57,9 @@
 		.domain([min(series, (d) => min(d, (d) => d[0])), max(series, (d) => max(d, (d) => d[1]))])
 		.range([chartHeight, 0]);
 
-	$: colorScale = scaleOrdinal().domain(categories).range(schemePaired);
+	$: colorScale = scaleOrdinal()
+		.domain(groupColors.map((d) => d.category))
+		.range(groupColors.map((d) => d.color.formatHex()));
 
 	$: areaStack = area()
 		.x((d) => xScale(d.data[0]))
