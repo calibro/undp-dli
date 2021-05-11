@@ -128,9 +128,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="row flex-grow-1">
+		<div class="row flex-grow-1 flex-shrink-1 overflow-hidden" bind:clientHeight={h}>
 			<div class="col-12">
-				<div bind:clientWidth={w} bind:clientHeight={h} class="w-100 h-100">
+				<div bind:clientWidth={w} class="w-100 h-100">
 					<Streamgraph width={w} height={h} {data} {categories} {view} />
 				</div>
 			</div>

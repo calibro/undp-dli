@@ -6,10 +6,10 @@
 	//export const prerender = false;
 
 	import { base } from '$app/paths';
-    import { dev } from '$app/env';
+	import { dev } from '$app/env';
 
 	export async function load({ page, fetch }) {
-		const baseUrl = dev?page.path:base+page.path
+		const baseUrl = dev ? page.path : base + page.path;
 		const res = await fetch(`${baseUrl}/data.json`);
 		const res2 = await fetch(`${baseUrl}.json`);
 		//const res = await fetch(`/circlepack.tsv`);
@@ -149,22 +149,25 @@
 				</div>
 			</div>
 		</div>
-		<div class="row flex-grow-1">
+		<div class="row flex-grow-1 flex-shrink-1 overflow-hidden" bind:clientHeight={h}>
 			<div class="col-12">
-				<div bind:clientWidth={w} bind:clientHeight={h} class="w-100 h-100">
+				<div bind:clientWidth={w} class="w-100 h-100">
 					<Circlepack width={w} height={h} {data} day={selectedDay} />
 				</div>
 			</div>
 		</div>
-		<div class="row py-2">
+		<div class="row py-2 gx-0">
 			{#each days as day}
 				<div class="col">
 					<button
 						on:click={() => handleDays(day)}
 						type="button"
-						class={`btn w-100 ${day === selectedDay ? 'btn-secondary' : 'btn-outline-secondary'}`}
+						class={`btn btn-sm rounded-0 w-100 ${
+							day === selectedDay ? 'btn-secondary' : 'btn-outline-secondary'
+						}`}
 					>
 						{day ? format('+')(day) : day}
+						{`day${Math.abs(day) > 1 ? 's' : ''}`}
 					</button>
 				</div>
 			{/each}
